@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
     padding: 0;
@@ -42,6 +42,10 @@
     font-family: "Dancing Script", cursive;
 }
 
+body {
+    font-family: "Helvetica";
+}
+
 /* Navbar */
 
 .navBar {
@@ -70,6 +74,13 @@
     background: #2f31f5;
     border-radius: 5px;
     transition: all 0.3s ease;
+}
+
+.nav-bg {
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.3px);
+    -webkit-backdrop-filter: blur(6.3px);
 }
 
 /* Animation classes */
@@ -221,30 +232,10 @@
 
 .card {
     position: sticky;
-    top: 0;
+    top: 20px;
     padding-top: calc(var(--index) * var(--cardTopPadding));
 }
 
-#card1 .card-body {
-    background-color: #6035ff;
-}
-
-#card2 .card-body {
-    /* background-color: #7EC4CF; */
-    background-color: #8854ff;
-}
-
-#card3 .card-body {
-    background-color: #009bff;
-}
-
-#card4 .card-body {
-    background-color: #00d2ff;
-}
-
-#card5 .card-body {
-    background-color: #00a7ca;
-}
 
 .card-body {
     box-sizing: border-box;
@@ -256,6 +247,7 @@
     justify-content: center;
     align-items: center;
     transition: all 0.5s;
+    background: linear-gradient(90deg, #6035ff 0%, #8854ff 100%);
 }
 
 .serviceHeading {
@@ -286,6 +278,214 @@
     background: #fff;
     color: #6035ff;
     transition: all .5s ease-in;
+}
+
+/* bundle */
+
+.bundleContainer {
+    margin-top: 30px;
+}
+
+.bundleCard {
+    border-radius: 20px;
+    margin-left: 10px;
+    height: 280px;
+    width: 280px;
+    background: #6035ff;
+    flex: 1;
+    transition: .3s all ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.bundleCard img {
+    height: 280px;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.bundleContent {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    border-radius: 20px;
+}
+
+.bundleCard:hover {
+    width: 350px;
+}
+
+.bundleCard:hover .bundleContent {
+    background-color: rgba(96, 53, 255, 0.3);
+}
+
+.bundleIcon {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 30px;
+    width: 40px;
+    text-align: center;
+    transition: all .3 ease;
+}
+
+.bundleCard:hover .icon-default {
+    display: none;
+}
+
+.icon-hover {
+    display: none;
+    /* Hide hover icon by default */
+}
+
+.bundleCard:hover .icon-hover {
+    display: block;
+}
+
+.bundleCard:hover .bundleIcon {
+    background-color: #6035ff;
+    color: #ffffff;
+    transition: all .3 ease;
+}
+
+.bundleTitle {
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.bundleDescription {
+    color: #ffffff;
+}
+
+.bundleBtn {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 20px;
+    width: 95%;
+}
+
+/* Lets talk */
+.contact-form form {
+    padding: 30px 0 0 0;
+}
+
+.contact-form form .form-row {
+    display: flex;
+    margin: 32px 0;
+}
+
+form .form-row .input-data {
+    width: 100%;
+    height: 40px;
+    margin: 0 20px;
+    position: relative;
+}
+
+form .form-row .textarea {
+    height: 70px;
+}
+
+.input-data input,
+.textarea textarea {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 17px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+}
+
+.input-data input:focus~label,
+.textarea textarea:focus~label,
+.input-data input:valid~label,
+.textarea textarea:valid~label {
+    transform: translateY(-20px);
+    font-size: 14px;
+    color: #6035ff;
+}
+
+input,
+textarea {
+    outline: none;
+}
+
+
+.textarea textarea {
+    resize: none;
+    padding-top: 10px;
+}
+
+.input-data label {
+    position: absolute;
+    pointer-events: none;
+    bottom: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.textarea label {
+    width: 100%;
+    bottom: 40px;
+    background: #fff;
+}
+
+.input-data .underline {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+}
+
+.input-data .underline:before {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 100%;
+    background: #6035ff;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.input-data input:focus~.underline:before,
+.input-data input:valid~.underline:before,
+.textarea textarea:focus~.underline:before,
+.textarea textarea:valid~.underline:before {
+    transform: scale(1);
+}
+
+.submitBtn {
+    background: linear-gradient(90deg, #6035ff 0%, #8854ff 100%);
+    color: #ffffff;
+    padding: 10px 25px;
+    width: 150px;
+    border-radius: 20px;
+}
+
+@media (max-width: 700px) {
+    .contact-form .text {
+        font-size: 30px;
+    }
+
+    .contact-form form {
+        padding: 10px 0 0 0;
+    }
+
+    .contact-form form .form-row {
+        display: block;
+    }
+
+    form .form-row .input-data {
+        margin: 35px 0 !important;
+    }
+
+    .submit-btn .input-data {
+        width: 40% !important;
+    }
 }
 
 @media (max-width: 680px) {

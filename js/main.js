@@ -1,5 +1,18 @@
 const menuBtn = document.getElementById("menuBtn");
 
+const navContainer = document.getElementById('navBarContainer');
+
+// Add an event listener for scroll
+window.addEventListener('scroll', () => {
+    // Check if the user has scrolled down 100 pixels or more
+    if (window.scrollY > 100) {
+        navContainer.classList.add('nav-bg');
+    } else {
+        navContainer.classList.remove('nav-bg');
+    }
+});
+
+
 menuBtn.addEventListener('click', function () {
     let icon = document.getElementsByClassName("menu-icon")[0]; // Access the first element
     let smallMenu = document.getElementsByClassName("small-menu")[0]; // Access the small-menu
@@ -41,33 +54,23 @@ window.addEventListener('hashchange', setActiveLink);
 setActiveLink();
 
 
-// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-//     anchor.addEventListener('click', function (e) {
-//         e.preventDefault();
+// const boxes = document.querySelectorAll('.box');
+// const options = {
+//     root: null, // Use the viewport as the root
+//     threshold: 0.6 // Trigger when 60% of the box is in the viewport
+// };
 
-//         document.querySelector(this.getAttribute('href')).scrollIntoView({
-//             behavior: 'smooth'
-//         });
+// const observer = new IntersectionObserver((entries, observer) => {
+//     entries.forEach(entry => {
+//         if (entry.isIntersecting) {
+//             entry.target.classList.add('active');
+//         } else {
+//             entry.target.classList.remove('active');
+//         }
 //     });
+// }, options);
+
+// // Observe each box
+// boxes.forEach(box => {
+//     observer.observe(box);
 // });
-
-const boxes = document.querySelectorAll('.box');
-const options = {
-    root: null, // Use the viewport as the root
-    threshold: 0.6 // Trigger when 60% of the box is in the viewport
-};
-
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-        } else {
-            entry.target.classList.remove('active');
-        }
-    });
-}, options);
-
-// Observe each box
-boxes.forEach(box => {
-    observer.observe(box);
-});
