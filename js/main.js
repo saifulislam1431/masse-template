@@ -92,7 +92,7 @@ const showServicesData = (servicesData) => {
                     <p class="serviceBenifit normalFont"><span class="boldFont">Benefits:</span> ${data.benefits}</p>
                 </div>
 
-                <div class="w-full" data-aos="zoom-in" data-aos-duration="700">
+                <div class="w-full flex items-center justify-center lg:justify-end" data-aos="zoom-in" data-aos-duration="700">
                 ${data.linkType === 'image'
                 ? `<img src="${data.link}" alt="${data.title}" class="w-[280px] h-[300px] rounded-xl" style="object-fit: fill;">`
                 : `<video controls class="w-[280px] h-[300px] rounded-xl" style="object-fit: fill;" controls=false loop muted autoplay>

@@ -283,8 +283,7 @@ video::-webkit-media-controls {
 /* Existing bundleCard styles */
 .bundleCard {
     border-radius: 20px;
-    margin-left: 10px;
-    height: 280px;
+    height: 420px;
     width: 205px;
     background: #6035ff;
     flex: 1;
@@ -296,12 +295,13 @@ video::-webkit-media-controls {
 /* Hover effect */
 .bundleCard:hover,
 .bundleCard.initial-hover {
-    width: 255px;
+    width: 250px;
+    flex: 1.5;
 }
 
 
 .bundleCard img {
-    height: 280px;
+    height: 100%;
     border-radius: 20px;
     width: 100%;
 }
@@ -620,5 +620,3 @@ input:focus~.highlight {
 .counterBg {
     background: linear-gradient(90deg, #996efd 0%, #996efd 100%);
 }
-
-/* Gallery */
