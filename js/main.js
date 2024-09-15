@@ -35,7 +35,7 @@ function setActiveLink() {
     const links = document.querySelectorAll('.nav-items a');
     console.log(links);
 
-    const currentHash = window.location.hash || '#banner' || "/";  // Default to #home if no hash is present
+    const currentHash = window.location.hash || '/';  // Default to #home if no hash is present
     console.log(currentHash);
 
     links.forEach(link => {

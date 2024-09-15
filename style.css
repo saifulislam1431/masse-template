@@ -49,7 +49,7 @@
 
 body {
     font-family: "Helvetica";
-    background: radial-gradient(circle at left, #ffffff, rgba(97, 53, 255, 0.123))
+    background: radial-gradient(circle at left, #ffffff, #ffffffc2)
 }
 
 .poppinsBold {
@@ -588,6 +588,10 @@ input:focus~.highlight {
 }
 
 .testimonialCard:hover .fa-quote-left {
+    color: #ffffff;
+}
+
+.testimonialCard:hover .client_position {
     color: #ffffff;
 }
 
