@@ -166,6 +166,7 @@ body {
     border-radius: 30px;
     background: #6035ff;
     color: #fff;
+    transition: all .5s ease-in;
 }
 
 .workBtn:hover {
@@ -174,7 +175,7 @@ body {
     border-radius: 30px;
     background: #fff;
     color: #6035ff;
-    transition: all .5s ease-in;
+
 }
 
 .swiper {
@@ -287,7 +288,7 @@ video::-webkit-media-controls {
     width: 205px;
     background: #6035ff;
     flex: 1;
-    transition: .3s all ease;
+    transition: 0.3s ease all;
     position: relative;
     cursor: pointer;
 }
@@ -320,7 +321,7 @@ video::-webkit-media-controls {
     border-radius: 30px;
     width: 40px;
     text-align: center;
-    transition: all .3 ease;
+    transition: 0.3s ease all;
 }
 
 /* Hover effect for icons */
@@ -339,7 +340,7 @@ video::-webkit-media-controls {
 .bundleCard.initial-hover .bundleIcon {
     background-color: #6035ff;
     color: #ffffff;
-    transition: all .3 ease;
+    transition: 0.2s ease all;
 }
 
 /* Hover effect for bundleContent */
@@ -617,7 +618,7 @@ input:focus~.highlight {
 /* Counter */
 
 .counterBg {
-    background: linear-gradient(90deg, #b9a8f8 0%, #996efd 100%);
+    background: linear-gradient(90deg, #996efd 0%, #996efd 100%);
 }
 
 /* Gallery */
