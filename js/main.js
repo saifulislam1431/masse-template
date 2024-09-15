@@ -188,4 +188,42 @@ const loadTestimonialData = async () => {
 loadTestimonialData();
 
 
+// Counter
+// Smooth counter animation with Intersection Observer
 
+const counters = document.querySelectorAll('.counter-value');
+const speed = 200; // Speed of the counter
+let observerTriggered = false; // To avoid re-triggering
+
+// Function to animate the counters
+function animateCounter(counter) {
+    const target = +counter.getAttribute('data-target');
+    const updateCount = () => {
+        const current = +counter.innerText;
+        const increment = target / speed;
+
+        if (current < target) {
+            counter.innerText = Math.ceil(current + increment);
+            requestAnimationFrame(updateCount); // Smooth animation
+        } else {
+            counter.innerText = target; // End at target
+        }
+    };
+    updateCount();
+}
+
+// Create an Intersection Observer to trigger the counter animation
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !observerTriggered) {
+            observerTriggered = true; // Avoid re-triggering when scrolling back up
+            counters.forEach(counter => animateCounter(counter));
+        }
+    });
+}, {
+    threshold: 0.5 // 50% of the element needs to be visible
+});
+
+// Start observing the section containing the counters
+const section = document.querySelector('.counter-section');
+observer.observe(section);
