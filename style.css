@@ -279,17 +279,25 @@ video::-webkit-media-controls {
     margin-top: 30px;
 }
 
+/* Existing bundleCard styles */
 .bundleCard {
     border-radius: 20px;
     margin-left: 10px;
     height: 280px;
-    width: 200px;
+    width: 205px;
     background: #6035ff;
     flex: 1;
     transition: .3s all ease;
     position: relative;
     cursor: pointer;
 }
+
+/* Hover effect */
+.bundleCard:hover,
+.bundleCard.initial-hover {
+    width: 255px;
+}
+
 
 .bundleCard img {
     height: 280px;
@@ -305,13 +313,6 @@ video::-webkit-media-controls {
     border-radius: 20px;
 }
 
-.bundleCard:hover {
-    width: 270px;
-}
-
-.bundleCard:hover .bundleContent {
-    background-color: rgba(96, 53, 255, 0.3);
-}
 
 .bundleIcon {
     background-color: #ffffff;
@@ -322,8 +323,29 @@ video::-webkit-media-controls {
     transition: all .3 ease;
 }
 
-.bundleCard:hover .icon-default {
+/* Hover effect for icons */
+.bundleCard:hover .icon-default,
+.bundleCard.initial-hover .icon-default {
     display: none;
+}
+
+.bundleCard:hover .icon-hover,
+.bundleCard.initial-hover .icon-hover {
+    display: block;
+}
+
+/* Hover effect for bundleIcon */
+.bundleCard:hover .bundleIcon,
+.bundleCard.initial-hover .bundleIcon {
+    background-color: #6035ff;
+    color: #ffffff;
+    transition: all .3 ease;
+}
+
+/* Hover effect for bundleContent */
+.bundleCard:hover .bundleContent,
+.bundleCard.initial-hover .bundleContent {
+    background-color: rgba(96, 53, 255, 0.3);
 }
 
 .icon-hover {
@@ -331,15 +353,7 @@ video::-webkit-media-controls {
     /* Hide hover icon by default */
 }
 
-.bundleCard:hover .icon-hover {
-    display: block;
-}
 
-.bundleCard:hover .bundleIcon {
-    background-color: #6035ff;
-    color: #ffffff;
-    transition: all .3 ease;
-}
 
 .bundleTitle {
     font-size: 24px;

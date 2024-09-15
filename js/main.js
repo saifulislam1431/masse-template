@@ -229,5 +229,28 @@ const section = document.querySelector('.counter-section');
 observer.observe(section);
 
 
-// Carousel
+// Bundle
+document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll('.bundleCard');
+    const firstCard = cards[0];
+
+    // Add initial hover class to the first card
+    firstCard.classList.add('initial-hover');
+
+    // Add event listeners to handle hover and reset
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            // Remove initial hover when hovering over another card
+            firstCard.classList.remove('initial-hover');
+        });
+
+        card.addEventListener('mouseleave', () => {
+            // Add back the initial hover when not hovering over any card
+            if (!document.querySelector('.bundleCard:hover')) {
+                firstCard.classList.add('initial-hover');
+            }
+        });
+    });
+});
+
 
