@@ -227,3 +227,7 @@ const observer = new IntersectionObserver(entries => {
 // Start observing the section containing the counters
 const section = document.querySelector('.counter-section');
 observer.observe(section);
+
+
+// Carousel
+
