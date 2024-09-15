@@ -74,3 +74,118 @@ setActiveLink();
 // boxes.forEach(box => {
 //     observer.observe(box);
 // });
+
+const serviceContainer = document.getElementById("cards");
+
+// Function to render the services data
+const showServicesData = (servicesData) => {
+    serviceContainer.innerHTML = ''; // Clear any previous content
+
+    servicesData?.forEach((data, index) => {
+        serviceContainer.innerHTML += `
+        <li class="card" id=card${index + 1} style="--index: ${index + 1}">
+            <div class="card-body flex flex-col lg:flex-row gap-10 items-center justify-center lg:justify-between w-full">
+                <div class="flex flex-col gap-4" data-aos="fade-right" data-aos-duration="700">
+                    <button class="serviceBtn normalFont w-40">Learn More</button>
+                    <h2 class="serviceHeading boldFont">${data.title}</h2>
+                    <p class="serviceDescription normalFont">${data.description}</p>
+                    <p class="serviceBenifit normalFont"><span class="boldFont">Benefits:</span> ${data.benefits}</p>
+                </div>
+
+                <div class="w-full" data-aos="zoom-in" data-aos-duration="700">
+                ${data.linkType === 'image'
+                ? `<img src="${data.link}" alt="${data.title}" class="w-[280px] h-[300px] rounded-xl" style="object-fit: fill;">`
+                : `<video controls class="w-[280px] h-[300px] rounded-xl" style="object-fit: fill;" controls=false loop muted autoplay>
+                            <source src="${data.link}" type="video/mp4">
+                            Your browser does not support the video tag.
+                       </video>`
+            }
+                </div>
+            </div>
+        </li>
+        `;
+    });
+};
+
+// Fetch the JSON data from the file and display it
+const loadServicesData = async () => {
+    try {
+        const response = await fetch('../jsons/services.json'); // Path to your JSON file
+        if (!response.ok) throw new Error('Failed to load JSON data');
+
+        const servicesData = await response.json();
+        document.documentElement.style.setProperty('--cards', servicesData.length);
+        showServicesData(servicesData); // Render the data
+    } catch (error) {
+        console.error('Error fetching the data:', error);
+    }
+};
+
+// Call the function to load and display the services
+loadServicesData();
+
+
+
+const testimonialContainer = document.getElementById("testimonial-container");
+
+const showTestimonialData = (testimonialData) => {
+    testimonialContainer.innerHTML = ''; // Clear any previous content
+
+    testimonialData?.forEach((data, index) => {
+        testimonialContainer.innerHTML += `
+        <div class="swiper-slide testimonial-card-box cursor-pointer">
+            <div class="testimonialCard">
+                <div class="slider-image-container">
+                    <img src="https://i.ibb.co.com/9qqmpb5/untitled-01976.jpg" alt="Slider Image"
+                        class="slider-image" style="width: 100%; height: 100%;">
+                </div>
+                <div class="testimonial-card-content">
+                    <h3 class="poppinsBold">${data.name}</h3>
+                    <p class="client_position">${data.designation}</p>
+                    <div class="absolute bottom-3 px-2">
+<i class="fa-solid fa-quote-left"></i>
+
+                    <p class="client_testimonial">${data.testimonial}"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `;
+    });
+
+    // After rendering the slides, update Swiper
+    if (window.mySwiper) {
+        // If Swiper already exists, update it
+        window.mySwiper.update();
+    } else {
+        // If Swiper doesn't exist, initialize it
+        window.mySwiper = new Swiper(".mySwiper3", {
+            loop: true,
+            effect: 'slide',
+            spaceBetween: 50,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+                reverseDirection: true,
+            },
+        });
+    }
+};
+
+const loadTestimonialData = async () => {
+    try {
+        const response = await fetch('../jsons/testimonial.json'); // Path to your JSON file
+        if (!response.ok) throw new Error('Failed to load JSON data');
+
+        const testimonialData = await response.json();
+
+        showTestimonialData(testimonialData); // Render the data
+    } catch (error) {
+        console.error('Error fetching the data:', error);
+    }
+};
+
+loadTestimonialData();
+
+
+

@@ -1,0 +1,37 @@
+[
+    {
+        "title": "Brand Identity & Positioning",
+        "description": "Your brand is more than just a logo—it's the heart and soul of your business. We help you define and refine your brand’s identity, ensuring it stands out in a crowded market. From crafting a memorable logo to developing a cohesive brand voice and positioning, we’ll create a brand that’s not only visually appealing but also strategically aligned with your goals.",
+        "benefits": "Build a strong, recognizable brand that resonates with your target audience and sets the stage for long-term success.",
+        "link": "../assets/services/branding.jpg",
+        "linkType": "image"
+    },
+    {
+        "title": "Digital Marketing",
+        "description": "In today’s digital world, visibility is everything. Our digital marketing services are designed to put your brand front and center, using data-driven strategies that drive engagement and conversions. From SEO and social media management to email marketing and PPC campaigns, we craft targeted plans that reach your audience where they are.",
+        "benefits": "Increase your online presence, engage your audience, and turn clicks into loyal customers with customized digital marketing strategies..",
+        "link": "../assets/services/marketing.jpg",
+        "linkType": "image"
+    },
+    {
+        "title": "Website Design & Development",
+        "description": "Your website is often the first impression customers have of your brand—let’s make it a good one. We create websites that are not only visually stunning but also user-friendly and optimized for performance. Our approach balances aesthetics with functionality, ensuring your site is a powerful tool for engaging visitors and driving action.",
+        "benefits": "Get a custom-designed website that not only looks great but also works hard for your business, turning visitors into leads.",
+        "link": "../assets/services/web.jpg",
+        "linkType": "image"
+    },
+    {
+        "title": "Strategy & Consulting",
+        "description": "Every great brand starts with a great strategy. At Massé, we dig deep to understand your business challenges and objectives, crafting strategies that are as unique as your brand. From market research and competitor analysis to growth planning and execution, our consulting services are designed to provide you with clear, actionable insights.",
+        "benefits": "Gain clarity, direction, and a clear roadmap to achieving your business goals with strategic consulting that goes beyond the surface.",
+        "link": "../assets/services/Consulting.jpeg",
+        "linkType": "image"
+    },
+    {
+        "title": "Creative Direction",
+        "description": "Creativity is at the core of everything we do. Our creative direction services bring fresh, innovative ideas to the table, helping your brand communicate in a way that’s both impactful and authentic. Whether it's a captivating campaign, a standout visual concept, or a complete brand overhaul, we ensure your brand's story is told in a compelling and cohesive manner.",
+        "benefits": "Elevate your brand’s presence with creative direction that captures attention, sparks emotion, and drives engagement.",
+        "link": "../assets/services/finaltest3.mp4",
+        "linkType": "video"
+    }
+]
