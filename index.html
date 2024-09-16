@@ -886,9 +886,9 @@
         const observer3 = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    //galleryContainer.classList.add("mySwiper4");
                     console.log('Section is near the center of the viewport');
-                    mySwiper4.classList.add("galleryContainerWidthSlider")
+                    mySwiper4.classList.add("galleryContainerWidthSlider");
+
 
                     // Destroy the current swiper instance
                     swiper4.destroy(true, true);
@@ -931,8 +931,8 @@
 
                     // Destroy the current swiper instance
                     swiper4.destroy(true, true);
-                    mySwiper4.classList.remove("galleryContainerWidthSlider")
-                    //galleryContainer.classList.remove("mySwiper4");
+                    mySwiper4.classList.remove("galleryContainerWidthSlider");
+
 
                     // Reinitialize Swiper with the "cards" effect
                     swiper4 = new Swiper(".mySwiper4", {
