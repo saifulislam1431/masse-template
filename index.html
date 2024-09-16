@@ -304,6 +304,39 @@
 
 
 
+        <section id="gallery" class="my-24">
+            <h1 class="stylist-font text-4xl text-center text-[#6035ff]">Got a brand itch? We’ve got the scratch for
+                that</h1>
+            <div class="swiper mySwiper4 h-[400px] py-11">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide grabingCard" style="height: 300px; width: 250px;">
+                        <img src="./assets/work/Cedar_DIY.PNG" alt="Gallery" style="width: 100%; border-radius: 20px;"
+                            class="galleryImg">
+                    </div>
+                    <div class="swiper-slide grabingCard" style="height: 300px; width: 250px;">
+                        <img src="./assets/work/Concert_Poster_Mockup.jpg" alt="Gallery"
+                            style="width: 100%; border-radius: 20px;" class="galleryImg">
+                    </div>
+                    <div class="swiper-slide grabingCard" style="height: 300px; width: 250px;">
+                        <img src="./assets/work/IMG_4893.JPG" alt="Gallery" style="width: 100%; border-radius: 20px;"
+                            class="galleryImg">
+                    </div>
+                    <div class="swiper-slide grabingCard" style="height: 300px; width: 250px;">
+                        <img src="./assets/work/IMG_4894.JPG" alt="Gallery" style="width: 100%; border-radius: 20px;"
+                            class="galleryImg">
+                    </div>
+                    <div class="swiper-slide grabingCard" style="height: 300px; width: 250px;">
+                        <img src="./assets/work/Levitate_Week_22.jpg" alt="Gallery"
+                            style="width: 100%; border-radius: 20px;" class="galleryImg">
+                    </div>
+                    <div class="swiper-slide grabingCard" style="height: 300px; width: 250px;">
+                        <img src="./assets/work/Meraki DIY.PNG" alt="Gallery" style="width: 100%; border-radius: 20px;"
+                            class="galleryImg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- services -->
         <section id="services" class="mt-16" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-sine">
             <h1 class="stylist-font text-4xl text-center text-[#6035ff]">Our Services</h1>
@@ -847,10 +880,101 @@
             effect: 'slide',
         });
 
-
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
+    <script>
+        // Initialize Swiper with "cards" effect
+        let swiper4 = new Swiper(".mySwiper4", {
+            effect: "cards",
+            grabCursor: true,
+            initialSlide: 2,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+                reverseDirection: false, // Normal horizontal direction
+            }
+        });
+
+        const mySwiper4 = document.querySelector('.mySwiper4');
+
+        // Intersection Observer with rootMargin to trigger near center of viewport
+        const observer3 = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    //galleryContainer.classList.add("mySwiper4");
+                    console.log('Section is near the center of the viewport');
+                    mySwiper4.classList.add("galleryContainerWidthSlider")
+                    // Destroy the current swiper instance
+                    swiper4.destroy(true, true);
+
+                    // Reinitialize Swiper to act like a normal horizontal slider
+                    swiper4 = new Swiper(".mySwiper4", {
+                        slidesPerView: 3,
+                        effect: "slide",
+                        spaceBetween: 50,
+                        loop: true,
+                        freeMode: true,
+                        autoplay: {
+                            delay: 3000,
+                            disableOnInteraction: false,
+                            reverseDirection: false, // Normal horizontal direction
+                        },
+                        // Define breakpoints for responsive behavior
+                        breakpoints: {
+                            // when window width is >= 320px (small mobile)
+                            320: {
+                                slidesPerView: 1,
+                                spaceBetween: 20,
+                            },
+                            // when window width is >= 640px (tablet)
+                            640: {
+                                slidesPerView: 2,
+                                spaceBetween: 30,
+                            },
+                            // when window width is >= 1024px (desktop)
+                            1024: {
+                                slidesPerView: 4,
+                                spaceBetween: 50,
+                            }
+                        }
+                    });
+
+                } else {
+                    console.log('Section is not near the center of the viewport');
+
+                    // Destroy the current swiper instance
+                    swiper4.destroy(true, true);
+                    mySwiper4.classList.remove("galleryContainerWidthSlider")
+                    //galleryContainer.classList.remove("mySwiper4");
+
+                    // Reinitialize Swiper with the "cards" effect
+                    swiper4 = new Swiper(".mySwiper4", {
+                        effect: "cards",
+                        grabCursor: true,
+                        initialSlide: 2,
+                        loop: true,
+                        autoplay: {
+                            delay: 3000,
+                            disableOnInteraction: false,
+                            reverseDirection: false, // Normal horizontal direction
+                        }
+                    });
+                }
+            });
+        }, {
+            root: null,  // Observe relative to the viewport
+            rootMargin: '0px 0px -30% 0px',  // Trigger when the section is near the center (adjust the value as needed)
+            threshold: 0.5 // Trigger when at least 50% of the element is visible
+        });
+
+        // Observe the swiper container or its parent section
+
+        observer3.observe(mySwiper4);
+    </script>
+
+
 </body>
 
 </html>

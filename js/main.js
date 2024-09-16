@@ -277,3 +277,30 @@ sections.forEach(section => {
         }
     );
 });
+
+const workSection = document.querySelector('.my-carousel-section');
+const container = document.querySelector('.my-carousel-container');
+
+workSection.addEventListener('intersect', () => {
+    workSection.classList.add('visible');
+    container.classList.add('visible');
+});
+
+const slides = document.querySelectorAll('.my-carousel-slide');
+
+slides.forEach((slide) => {
+    slide.addEventListener('mouseenter', () => {
+        slide.classList.add('hovered');
+    });
+    slide.addEventListener('mouseleave', () => {
+        slide.classList.remove('hovered');
+    });
+});
+
+const observer2 = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+        workSection.dispatchEvent(new CustomEvent('intersect'));
+    }
+}, { threshold: 1.0 });
+
+observer2.observe(section);
