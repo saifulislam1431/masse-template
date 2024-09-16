@@ -308,31 +308,8 @@
             <h1 class="stylist-font text-4xl text-center text-[#6035ff]">Got a brand itch? We’ve got the scratch for
                 that</h1>
             <div class="swiper mySwiper4 h-[400px] py-11">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide grabingCard" style="height: 300px; width: 250px;">
-                        <img src="./assets/work/Cedar_DIY.PNG" alt="Gallery" style="width: 100%; border-radius: 20px;"
-                            class="galleryImg">
-                    </div>
-                    <div class="swiper-slide grabingCard" style="height: 300px; width: 250px;">
-                        <img src="./assets/work/Concert_Poster_Mockup.jpg" alt="Gallery"
-                            style="width: 100%; border-radius: 20px;" class="galleryImg">
-                    </div>
-                    <div class="swiper-slide grabingCard" style="height: 300px; width: 250px;">
-                        <img src="./assets/work/IMG_4893.JPG" alt="Gallery" style="width: 100%; border-radius: 20px;"
-                            class="galleryImg">
-                    </div>
-                    <div class="swiper-slide grabingCard" style="height: 300px; width: 250px;">
-                        <img src="./assets/work/IMG_4894.JPG" alt="Gallery" style="width: 100%; border-radius: 20px;"
-                            class="galleryImg">
-                    </div>
-                    <div class="swiper-slide grabingCard" style="height: 300px; width: 250px;">
-                        <img src="./assets/work/Levitate_Week_22.jpg" alt="Gallery"
-                            style="width: 100%; border-radius: 20px;" class="galleryImg">
-                    </div>
-                    <div class="swiper-slide grabingCard" style="height: 300px; width: 250px;">
-                        <img src="./assets/work/Meraki DIY.PNG" alt="Gallery" style="width: 100%; border-radius: 20px;"
-                            class="galleryImg">
-                    </div>
+                <div class="swiper-wrapper" id="gallerySlider">
+
                 </div>
             </div>
         </section>
@@ -903,6 +880,7 @@
         });
 
         const mySwiper4 = document.querySelector('.mySwiper4');
+        const title = document.getElementsByClassName("galleryTitle")
 
         // Intersection Observer with rootMargin to trigger near center of viewport
         const observer3 = new IntersectionObserver((entries) => {
@@ -911,6 +889,7 @@
                     //galleryContainer.classList.add("mySwiper4");
                     console.log('Section is near the center of the viewport');
                     mySwiper4.classList.add("galleryContainerWidthSlider")
+
                     // Destroy the current swiper instance
                     swiper4.destroy(true, true);
 
@@ -952,7 +931,7 @@
 
                     // Destroy the current swiper instance
                     swiper4.destroy(true, true);
-                    mySwiper4.classList.remove("galleryContainerWidthSlider")
+
                     //galleryContainer.classList.remove("mySwiper4");
 
                     // Reinitialize Swiper with the "cards" effect

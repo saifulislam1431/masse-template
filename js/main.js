@@ -253,54 +253,39 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Initialize GSAP ScrollTrigger
-gsap.registerPlugin(ScrollTrigger);
 
-// Select all sections
-const sections = document.querySelectorAll(".section");
+//Gallery
+const galleryContainer = document.getElementById("gallerySlider");
 
-// Create animation for each section
-sections.forEach(section => {
-    gsap.fromTo(section,
-        { opacity: 0, y: 50 },  // From state: hidden and moved down
-        {
-            opacity: 1,
-            y: 0,
-            duration: 1,  // Animation duration
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: section,
-                start: "top 80%",  // Animation starts when 80% of the section is in the viewport
-                toggleActions: "play none none none",  // Only play once when it enters
-                markers: false  // Set to true for debugging
-            }
-        }
-    );
-});
+// Function to render the services data
+const showGalleryData = (galleryData) => {
+    galleryContainer.innerHTML = ''; // Clear any previous content
+    console.log(galleryData);
 
-const workSection = document.querySelector('.my-carousel-section');
-const container = document.querySelector('.my-carousel-container');
+    galleryData?.forEach((data, index) => {
+        galleryContainer.innerHTML += `
+        <div class="swiper-slide grabingCard" style="height: 300px; width: 250px;">
+                        <img src=${data?.image} alt="Gallery" style="width: 100%; border-radius: 20px;"
+                            class="galleryImg">
 
-workSection.addEventListener('intersect', () => {
-    workSection.classList.add('visible');
-    container.classList.add('visible');
-});
-
-const slides = document.querySelectorAll('.my-carousel-slide');
-
-slides.forEach((slide) => {
-    slide.addEventListener('mouseenter', () => {
-        slide.classList.add('hovered');
+                            <h1 class="galleryText stylist-font galleryTitle galleryTextHide">${data?.title}</h1>
+                    </div>
+        `;
     });
-    slide.addEventListener('mouseleave', () => {
-        slide.classList.remove('hovered');
-    });
-});
+};
 
-const observer2 = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-        workSection.dispatchEvent(new CustomEvent('intersect'));
+// Fetch the JSON data from the file and display it
+const loadGalleryData = async () => {
+    try {
+        const response = await fetch('../jsons/galleryData.json'); // Path to your JSON file
+
+        if (!response.ok) throw new Error('Failed to load JSON data');
+        const galleryDatas = await response.json();
+        showGalleryData(galleryDatas); // Render the data
+    } catch (error) {
+        console.error('Error fetching the data:', error);
     }
-}, { threshold: 1.0 });
+};
 
-observer2.observe(section);
+// Call the function to load and display the services
+loadGalleryData();

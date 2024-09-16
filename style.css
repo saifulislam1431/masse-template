@@ -667,7 +667,7 @@ input:focus~.highlight {
 
 /* Hovered image */
 .galleryImg:hover {
-    transform: scale(1.16) rotate(10deg);
+    transform: scale(1.16) rotate(5deg);
     transition: transform 0.3s ease;
     z-index: 2;
     /* Ensure the hovered image appears on top */
@@ -676,4 +676,14 @@ input:focus~.highlight {
 /* Remove blur when not hovering */
 .galleryImg {
     transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.galleryText {
+    color: #6035ff;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.galleryTextHide {
+    visibility: hidden;
 }
