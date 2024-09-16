@@ -845,31 +845,36 @@
         var swiper = new Swiper(".mySwiper", {
             direction: "vertical",
             loop: true,
+            spaceBetween: 30,
             autoplay: {
-                delay: 2500,
+                delay: 100,
                 disableOnInteraction: false,
             },
+            speed: 4000,
         });
 
         var swiper = new Swiper(".mySwiper2", {
             direction: "vertical",
             loop: true,
             effect: 'slide',
+            spaceBetween: 30,
             autoplay: {
-                delay: 2500,
+                delay: 100,
                 disableOnInteraction: false,
                 reverseDirection: true,
             },
+            speed: 4000,
         });
         var swiper = new Swiper(".mySwiper3", {
             loop: true,
             effect: 'slide',
             spaceBetween: 50,
             autoplay: {
-                delay: 3000,
+                delay: 2000,
                 disableOnInteraction: false,
                 reverseDirection: true,
             },
+            speed: 1000,
         });
 
         // Initialize Swiper.js with custom class names
@@ -916,8 +921,9 @@
                         spaceBetween: 50,
                         loop: true,
                         freeMode: true,
+                        speed: 2500,
                         autoplay: {
-                            delay: 3000,
+                            delay: 1000,
                             disableOnInteraction: false,
                             reverseDirection: false, // Normal horizontal direction
                         },
