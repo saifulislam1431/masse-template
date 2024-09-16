@@ -253,4 +253,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// Initialize GSAP ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
 
+// Select all sections
+const sections = document.querySelectorAll(".section");
+
+// Create animation for each section
+sections.forEach(section => {
+    gsap.fromTo(section,
+        { opacity: 0, y: 50 },  // From state: hidden and moved down
+        {
+            opacity: 1,
+            y: 0,
+            duration: 1,  // Animation duration
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: section,
+                start: "top 80%",  // Animation starts when 80% of the section is in the viewport
+                toggleActions: "play none none none",  // Only play once when it enters
+                markers: false  // Set to true for debugging
+            }
+        }
+    );
+});
