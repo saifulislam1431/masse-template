@@ -667,7 +667,7 @@ input:focus~.highlight {
 
 /* Hovered image */
 .galleryImg:hover {
-    transform: scale(1.16) rotate(5deg);
+    transform: scale(1.1) rotate(5deg);
     transition: transform 0.3s ease;
     z-index: 2;
     /* Ensure the hovered image appears on top */
@@ -686,4 +686,54 @@ input:focus~.highlight {
 
 .galleryTextHide {
     visibility: hidden;
+}
+
+.grabingCard {
+    width: 300px !important;
+}
+
+/* Moodaboard */
+.colorCode {
+    font-size: 10px;
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+}
+
+@media screen and (max-width:768px) {
+    .galleryImg:hover {
+        transform: scale(1) rotate(2deg);
+    }
+
+    .grabingCard {
+        width: 260px !important;
+    }
+
+    .card {
+        top: 50px;
+    }
+
+    .serviceHeading {
+        font-size: 18px;
+    }
+
+    .serviceBenifit {
+        font-size: 15px;
+    }
+
+    .serviceAsset {
+        height: 240px;
+        width: 240px;
+    }
+
+    .bundleCard {
+        width: 280px !important;
+        height: 280px !important;
+    }
+
+    /* Hover effect */
+    .bundleCard:hover,
+    .bundleCard.initial-hover {
+        width: 290px !important;
+        flex: 1.5;
+    }
 }

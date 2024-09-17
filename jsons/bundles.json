@@ -1,0 +1,27 @@
+[
+    {
+        "title": "Starter Bundle",
+        "description": "A streamlined set of basic tools, perfect for beginners looking to get started quickly and efficiently.",
+        "image": "../assets/bundles/bundle1.jpeg"
+    },
+    {
+        "title": "Pro Bundle",
+        "description": "Advanced tools and features tailored for professionals who need more power and flexibility",
+        "image": "../assets/bundles/bundle2.jpeg"
+    },
+    {
+        "title": "Enterprise Bundle",
+        "description": "A robust, scalable solution designed for large teams and organizations with complex needs.",
+        "image": "../assets/bundles/bundle3.jpeg"
+    },
+    {
+        "title": "Creative Bundle",
+        "description": "A curated collection of tools for designers and creatives to bring their visions to life with ease.",
+        "image": "../assets/bundles/bundle4.jpeg"
+    },
+    {
+        "title": "Ultimate Bundle",
+        "description": "A curated collection of tools for designers and creatives to bring their visions to life with ease.",
+        "image": "../assets/bundles/bundle5.jpeg"
+    }
+]

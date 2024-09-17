@@ -94,8 +94,8 @@ const showServicesData = (servicesData) => {
 
                 <div class="w-full flex items-center justify-center lg:justify-end" data-aos="zoom-in" data-aos-duration="700">
                 ${data.linkType === 'image'
-                ? `<img src="${data.link}" alt="${data.title}" class="w-[280px] h-[300px] rounded-xl" style="object-fit: fill;">`
-                : `<video controls class="w-[280px] h-[300px] rounded-xl" style="object-fit: fill;" controls=false loop muted autoplay>
+                ? `<img src="${data.link}" alt="${data.title}" class="w-[280px] h-[300px] rounded-xl" style="object-fit: fill;" class="serviceAsset">`
+                : `<video controls class="w-[280px] h-[300px] rounded-xl" style="object-fit: fill;" controls=false loop muted autoplay class="serviceAsset">
                             <source src="${data.link}" type="video/mp4">
                             Your browser does not support the video tag.
                        </video>`
@@ -264,7 +264,7 @@ const showGalleryData = (galleryData) => {
 
     galleryData?.forEach((data, index) => {
         galleryContainer.innerHTML += `
-        <div class="swiper-slide grabingCard" style="height: 300px; width: 250px;">
+        <div class="swiper-slide grabingCard" style="height: 300px;">
                         <img src=${data?.image} alt="Gallery" style="width: 100%; border-radius: 20px;"
                             class="galleryImg">
 
@@ -289,3 +289,102 @@ const loadGalleryData = async () => {
 
 // Call the function to load and display the services
 loadGalleryData();
+
+
+const bundleCardContainer = document.getElementById("bundleCardContainer");
+
+const showBundleData = (bundleData) => {
+    bundleCardContainer.innerHTML = ''; // Clear any previous content
+
+    bundleData?.forEach((data, index) => {
+        bundleCardContainer.innerHTML += `
+<div class="bundleCard">
+    <img src=${data?.image} alt=bundle${index + 1}>
+
+    <div class="bundleContent">
+        <div class="flex flex-col justify-between p-3">
+            <div class="flex items-end justify-end">
+                <div class="bundleIcon">
+                    <!-- Original Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" class="icon icon-default">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                    </svg>
+
+                    <!-- Hover Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" class="icon icon-hover">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+
+                </div>
+            </div>
+
+            <div class="absolute bottom-3">
+                <h1 class="bundleTitle boldFont">${data?.title}</h1>
+                <p class="bundleDescription lightFont">${data?.description}</p>
+
+                <button class="bundleBtn boldFont">
+                    <span>Explore Bundle</span>
+
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+        `;
+    });
+
+    const bundleCards = document.querySelectorAll('.bundleCard');
+    const firstBundleCard = bundleCards[0];
+
+    // Apply initial-hover class to the first card
+    if (firstBundleCard) {
+        firstBundleCard.classList.add('initial-hover');
+    }
+
+    // Handle hover events to remove initial-hover when hovering over other cards
+    bundleCards.forEach((card) => {
+        card.addEventListener('mouseenter', () => {
+            // Remove initial-hover class when hovering over any card
+            if (firstBundleCard) {
+                firstBundleCard.classList.remove('initial-hover');
+            }
+        });
+
+        card.addEventListener('mouseleave', () => {
+            // Reapply initial-hover class if no cards are being hovered
+            const isAnyCardHovered = Array.from(bundleCards).some((card) => card.matches(':hover'));
+
+            if (!isAnyCardHovered && firstBundleCard) {
+                firstBundleCard.classList.add('initial-hover');
+            }
+        });
+    });
+};
+
+// Fetch the JSON data from the file and display it
+const loadBundleData = async () => {
+    try {
+        const response = await fetch('../jsons/bundles.json'); // Path to your JSON file
+
+        if (!response.ok) throw new Error('Failed to load JSON data');
+        const bundleData = await response.json();
+        showBundleData(bundleData); // Render the data
+    } catch (error) {
+        console.error('Error fetching the data:', error);
+    }
+};
+
+// Call the function to load and display the services
+loadBundleData();
+
