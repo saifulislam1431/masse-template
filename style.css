@@ -283,13 +283,17 @@ video::-webkit-media-controls {
 /* Existing bundleCard styles */
 .bundleCard {
     border-radius: 20px;
-    height: 420px;
+    height: 400px;
     width: 205px;
     background: #6035ff;
     flex: 1;
     transition: 0.3s ease all;
     position: relative;
     cursor: pointer;
+}
+
+.bundleCard img {
+    height: 400px !important;
 }
 
 /* Hover effect */
