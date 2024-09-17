@@ -727,7 +727,7 @@ input:focus~.highlight {
 
     .bundleCard {
         width: 280px !important;
-        height: 280px !important;
+
     }
 
     /* Hover effect */
@@ -735,5 +735,9 @@ input:focus~.highlight {
     .bundleCard.initial-hover {
         width: 290px !important;
         flex: 1.5;
+    }
+
+    .bundleCard img {
+        height: 300px !important;
     }
 }
