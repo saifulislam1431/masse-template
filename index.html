@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <header class="sticky top-0 navContainer z-50">
+    <header class="sticky top-0 navContainer z-50" style="display: none;" id="nav-container">
         <nav class="navBar flex items-center justify-between" id="navBarContainer">
 
             <div class="logo">
@@ -62,7 +62,23 @@
     </header>
 
 
-    <main class="max-w-7xl mx-auto p-5">
+    <!-- Loading -->
+    <div class="wrapper" id="loadinContainer">
+        <div class="box-wrap">
+            <div class="box one"></div>
+            <div class="box two"></div>
+            <div class="box three"></div>
+            <div class="box four"></div>
+            <div class="box five"></div>
+            <div class="box six"></div>
+        </div>
+
+        <div class="loadingLogo">
+            <img src="./assets/logomasse/logo3.png" alt="Logo" />
+        </div>
+    </div>
+
+    <main class="max-w-7xl mx-auto p-5" id="mainContainer" style="display: none;">
         <!-- Banner -->
         <section id="" class="flex flex-col lg:flex-row items-center justify-between gap-11 overflow-hidden"
             data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-sine">
@@ -369,6 +385,7 @@
         </section>
 
 
+
         <section class="my-14 overflow-hidden" id="moodboard" data-aos="fade-up" data-aos-duration="1000"
             data-aos-easing="ease-in-sine">
             <h1 class="stylist-font text-4xl text-center text-[#6035ff]">Moodboard</h1>
@@ -525,7 +542,7 @@
 
     </main>
 
-    <div class="relative mt-16 bg-[#6035ff]">
+    <div class="relative mt-16 bg-[#6035ff]" id="footer" style="display: none;">
         <svg class="absolute top-0 w-full h-6 -mt-5 sm:-mt-10 sm:h-16 text-deep-purple-accent-400"
             preserveAspectRatio="none" viewBox="0 0 1440 54">
             <path fill="#6035ff"
@@ -810,6 +827,18 @@
         // Observe the swiper container or its parent section
 
         observer3.observe(mySwiper4);
+    </script>
+
+    <script>
+        // Wait for the entire page to load
+        window.addEventListener("load", function () {
+            // Hide the loader
+            document.getElementById("loadinContainer").style.display = "none";
+            // Show the content
+            document.getElementById("mainContainer").style.display = "block";
+            document.getElementById("footer").style.display = "block";
+            document.getElementById("nav-container").style.display = "block";
+        });
     </script>
 
 

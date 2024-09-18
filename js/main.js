@@ -388,3 +388,12 @@ const loadBundleData = async () => {
 // Call the function to load and display the services
 loadBundleData();
 
+document.addEventListener("DOMContentLoaded", function () {
+    const wrapper = document.querySelector(".wrapper");
+    const logo = document.querySelector(".loadingLogo");
+
+    wrapper.addEventListener("animationend", function () {
+        logo.classList.add("show");
+    });
+});
+
