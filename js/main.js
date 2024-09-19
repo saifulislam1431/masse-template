@@ -256,6 +256,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //Gallery
 const galleryContainer = document.getElementById("gallerySlider");
+const galleryContainerSmall = document.getElementById("gallerySliderSmall");
 
 // Function to render the services data
 const showGalleryData = (galleryData) => {
@@ -264,6 +265,21 @@ const showGalleryData = (galleryData) => {
 
     galleryData?.forEach((data, index) => {
         galleryContainer.innerHTML += `
+        <div class="swiper-slide grabingCard" style="height: 300px;">
+                        <img src=${data?.image} alt="Gallery" style="width: 100%; border-radius: 20px;"
+                            class="galleryImg">
+
+                            <h1 class="galleryText stylist-font galleryTitle galleryTextHide">${data?.title}</h1>
+                    </div>
+        `;
+    });
+};
+const showGalleryDataSmall = (galleryData) => {
+    galleryContainerSmall.innerHTML = ''; // Clear any previous content
+    console.log(galleryData);
+
+    galleryData?.forEach((data, index) => {
+        galleryContainerSmall.innerHTML += `
         <div class="swiper-slide grabingCard" style="height: 300px;">
                         <img src=${data?.image} alt="Gallery" style="width: 100%; border-radius: 20px;"
                             class="galleryImg">
@@ -282,6 +298,7 @@ const loadGalleryData = async () => {
         if (!response.ok) throw new Error('Failed to load JSON data');
         const galleryDatas = await response.json();
         showGalleryData(galleryDatas); // Render the data
+        showGalleryDataSmall(galleryDatas); // Render the data
     } catch (error) {
         console.error('Error fetching the data:', error);
     }
@@ -396,4 +413,3 @@ document.addEventListener("DOMContentLoaded", function () {
         logo.classList.add("show");
     });
 });
-

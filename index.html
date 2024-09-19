@@ -320,12 +320,24 @@
 
         <!-- gallery -->
 
-        <section id="gallery" class="my-24 overflow-hidden" data-aos="fade-up" data-aos-duration="1000"
-            data-aos-easing="ease-in-sine">
+        <section id="gallery" class="my-24 overflow-hidden hidden lg:flex lg:flex-col" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-easing="ease-in-sine">
             <h1 class="stylist-font text-4xl text-center text-[#6035ff]">Got a brand itch? We’ve got the scratch for
                 that</h1>
             <div class="swiper mySwiper4 h-[400px] py-11">
                 <div class="swiper-wrapper" id="gallerySlider">
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="gallery" class="my-24 overflow-hidden lg:hidden flex flex-col" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-easing="ease-in-sine">
+            <h1 class="stylist-font text-4xl text-center text-[#6035ff]">Got a brand itch? We’ve got the scratch for
+                that</h1>
+            <div class="swiper mySwiper5 h-[400px] py-11">
+                <div class="swiper-wrapper" id="gallerySliderSmall">
 
                 </div>
             </div>
@@ -724,6 +736,7 @@
             speed: 1000,
         });
 
+
         // Initialize Swiper.js with custom class names
         var swiper = new Swiper('.custom-swiper-container', {
             slidesPerView: 'auto',
@@ -827,6 +840,24 @@
         // Observe the swiper container or its parent section
 
         observer3.observe(mySwiper4);
+    </script>
+
+    <script>
+        swiper4.destroy(true, true);
+        let mySwiper5 = document.querySelector(".mySwiper5")
+        mySwiper5.classList.add("galleryContainerWidthSlider");
+        var swiper5 = new Swiper(".mySwiper5", {
+            loop: true,
+            freeMode: true,
+            effect: 'slide',
+            spaceBetween: 50,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+                reverseDirection: true,
+            },
+            speed: 1000,
+        });
     </script>
 
     <script>
